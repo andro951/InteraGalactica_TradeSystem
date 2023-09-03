@@ -16,11 +16,11 @@ SDEV-345 Week 1 C++ Warm-up requirements:
         -TradeOffer
 
     -At least one polymorphic method
-        -
+        -TradeSsytem.SyncLocalPlayerTradeOffers()
 
     -At least one pointer and one reference
         -reference: Logging.cpp, Log()
-        -pointer: 
+        -pointer: Player.tradeOffers
 
     -Demonstrate correct use of public, private and protected keywords
         -TradeOffer, SellOffer, BuyOffer

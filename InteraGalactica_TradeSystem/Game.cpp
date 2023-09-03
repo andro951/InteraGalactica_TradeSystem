@@ -1,7 +1,16 @@
+/*
+Author - Isaac Richards
+Date - 29AUG23
+Description - Game is a "static" class that runs everything in the game.
+    To run the game, access the static instance with Game::Instance() then call Start().
+*/
+
 #include "Game.h"
 #include "TradeSystem.h"
 #include <string>
 #include "Logging.h"
+#include "TimeSystem.h"
+#include "Player.h"
 
 Game::Game() {}
 
@@ -28,7 +37,9 @@ void Game::Stop() {
 void Game::Setup() {
     LogMessage(MessageID::GameSetup);
 
+    TimeSystem::Setup();
     Load();
+    Player::SetupLocalPlyaer();
 
     LogMessage(MessageID::GameSetupComplete);
 }
@@ -58,14 +69,9 @@ void Game::Run() {
 }
 
 void Game::Tick() {
-    RunTesting();//Temporary for testing.
+    TimeSystem::UpdateTime();
+    int time = TimeSystem::GetNow();
+
+    TradeSystem::Instance().Tick(time);
     Stop();//Temporary for testing.
-}
-
-void Game::RunTesting() {
-    LogString("Starting Run Testing.");
-
-
-
-    LogString("Completed Run Testing.");
 }

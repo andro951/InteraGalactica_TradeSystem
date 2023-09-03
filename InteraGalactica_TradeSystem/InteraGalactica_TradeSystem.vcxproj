@@ -127,20 +127,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BuyOffer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InteraGalactica_TradeSystem.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Logging.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SellOffer.cpp" />
+    <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="TradeOffer.cpp" />
     <ClCompile Include="TradeSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BuyOffer.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemID.h" />
     <ClInclude Include="json_nlohmann.h" />
     <ClInclude Include="Logging.h" />
+    <ClInclude Include="multimap.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="SellOffer.h" />
+    <ClInclude Include="TimeSystem.h" />
     <ClInclude Include="TradeOffer.h" />
     <ClInclude Include="TradeSystem.h" />
   </ItemGroup>

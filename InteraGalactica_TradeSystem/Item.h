@@ -1,3 +1,8 @@
+/*
+Author - Isaac Richards
+Date - 29AUG23
+Description - Item is the base class for all items in the game.
+*/
 #pragma once
 
 #include "ItemID.h"
@@ -7,8 +12,8 @@ public:
 	Item();
 	Item(ItemID Type, int Quantity);
 
-	ItemID GetType();
-	int GetQuantity();
+	ItemID GetType() const;
+	int GetQuantity() const;
 
 private:
 	ItemID type;

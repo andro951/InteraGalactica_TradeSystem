@@ -37,7 +37,4 @@ private:
 
 	void Run();
 	void Tick();
-	
-	
-	void RunTesting();
 };

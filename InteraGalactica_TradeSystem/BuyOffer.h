@@ -7,11 +7,14 @@ Description - Buy Offer is the class storing all trade offers which are used by 
 
 #include "TradeOffer.h"
 
-class SellOffer : public TradeOffer {
+class BuyOffer : public TradeOffer {
 public:
-	SellOffer();
-	SellOffer(ItemID ItemType, int Value, int Quantity = 1);
+	BuyOffer();
+	BuyOffer(ItemID ItemType, int Value, int Quantity = 1);
 
+	/// <summary>
+	/// Context() is used to determine what type of trade offer it is such as created by a player or npc.
+	/// </summary>
 	TradeContextID Context() const override;
 	int TradeDuration() const override;
 	virtual void Save(nlohmann::json& Data);
@@ -20,7 +23,7 @@ public:
 
 private:
 	/// <summary>
-	/// 1 Week in minutes.
+	/// 2 Weeks in minutes.
 	/// </summary>
-	int TRADE_DURATION = TimeSystem::MINUTES_PER_WEEK;
+	int TRADE_DURATION = TimeSystem::MINUTES_PER_WEEK * 2;
 };

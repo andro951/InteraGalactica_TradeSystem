@@ -1,6 +1,12 @@
+/*
+Author - Isaac Richards
+Date - 29AUG23
+Description - Logging.h contains functions for logging messages to the console.
+*/
 #include "Logging.h"
 #include <iostream>
 #include <map>
+#include <Windows.h>
 
 std::map<MessageID, std::string> messages = {
 	{ MessageID::GameStart, "Starting the game." },
@@ -17,16 +23,33 @@ std::map<MessageID, std::string> messages = {
 	//{ MessageID::, "" },
 };
 
-void Log(const std::string& s, bool newLine = true) {
+bool DebuggerIsAttatched = IsDebuggerPresent() != 0;
+
+//Bools manually set by the programmer to enable/disable logging troubleshooting messages.
+bool logTradeOffers = true;
+bool logGameMessages = true;
+
+bool LogTradeOffers() {
+	return DebuggerIsAttatched && logTradeOffers;
+}
+
+bool LogGameMessages() {
+	return DebuggerIsAttatched && logGameMessages;
+}
+
+void Log(const std::string& s, bool newLine) {
 	std::cout << s;
 	if (newLine)
 		std::cout << std::endl;
 }
 
-void LogString(const std::string s, bool newLine = true) {
+void LogString(const std::string s, bool newLine) {
 	Log(s, newLine);
 }
 
-void LogMessage(MessageID messageID) {
-	Log(messages[messageID]);
+void LogMessage(MessageID messageID, bool newLine) {
+	if (!LogGameMessages())
+		return;
+
+	Log(messages[messageID], newLine);
 }
